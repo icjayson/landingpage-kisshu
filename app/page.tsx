@@ -389,7 +389,7 @@ export default function LandingPage() {
               BỘ SƯU TẬP{' '} <br className="max-md:block hidden" /> SẢN PHẨM
             </h2>
           </div>
-          <div className="grid grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-1 gap-4">
+          <div className="grid grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-3 max-sm:grid-cols-2 gap-4">
             {/* Kẹo hương dâu */}
             <div className="group overflow-hidden rounded-[16px] border-2 border-[#F0768E] bg-[#F8E4EF] p-4 transition-all hover:shadow-lg flex flex-col">
               <div className="relative h-40 w-full overflow-hidden rounded-[12px]">
