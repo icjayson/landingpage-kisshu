@@ -18,7 +18,7 @@ const RuleItem = ({ title, content, gradient }: RuleItemProps) => {
         onClick={() => setIsOpen(!isOpen)}
         className={`group flex w-full items-center justify-between rounded-[0px] ${gradient} p-4 text-left transition-all`}
       >
-        <span className="text-[18px] font-medium text-black">{title}</span>
+        <span className="text-[18px] max-sm:text-[16px] font-medium text-black">{title}</span>
         <ChevronDown className={`h-6 w-6 transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       <div 
@@ -27,7 +27,7 @@ const RuleItem = ({ title, content, gradient }: RuleItemProps) => {
         }`}
       >
         <div className="bg-white p-4">
-          <p className="text-[16px] text-gray-600">{content}</p>
+          <p className="text-[16px] max-sm:text-[12px] text-gray-600">{content}</p>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@ export default function RulesSection() {
 
   return (
     <section id="rules" className="bg-[#D1ECF4] py-8">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8">
         <div className="mb-0 flex items-center justify-center">
           <div className="relative h-40 w-auto overflow-hidden pr-8">
             <img 
@@ -69,7 +69,7 @@ export default function RulesSection() {
               className="h-full w-auto object-contain"
             />
           </div>
-          <h2 className="text-[36px] max-md:text-[24px] font-bold text-[#49C4D9] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]">
+          <h2 className="text-[36px] max-md:text-[28px] max-sm:text-[24px] font-bold text-[#49C4D9] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]">
             THỂ LỆ{' '} <br className="max-md:block hidden" /> CHƯƠNG TRÌNH
           </h2>
         </div>
