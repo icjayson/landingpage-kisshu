@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 interface RuleItemProps {
   title: string
@@ -61,21 +62,45 @@ export default function RulesSection() {
   return (
     <section id="rules" className="bg-[#D1ECF4] py-8">
       <div className="container mx-auto px-8">
-        <div className="mb-0 flex items-center justify-center">
-          <div className="relative h-40 w-auto overflow-hidden pr-8">
+      <div className="mb-0 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative h-40 w-auto overflow-hidden pr-8"
+          >
             <img 
               src="/nv-bac-ha.png" 
-              alt="Rules Character" 
+              alt="Strawberry Character" 
               className="h-full w-auto object-contain"
             />
-          </div>
-          <h2 className="text-[36px] max-md:text-[28px] max-sm:text-[24px] font-bold text-[#49C4D9] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]">
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-[36px] max-md:text-[28px] max-sm:text-[24px] font-bold text-[#49C4D9] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]"
+          >
             THỂ LỆ{' '} <br className="max-md:block hidden" /> CHƯƠNG TRÌNH
-          </h2>
+          </motion.h2>
         </div>
         <div className="mx-auto w-full max-w-3xl space-y-4">
           {rules.map((rule, index) => (
-            <RuleItem key={index} {...rule} />
+            <motion.div
+              key={index}
+              initial={{ scale: 0.8, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ 
+                duration: 0.3,
+                delay: index * 0.1,
+                ease: "easeOut"
+              }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <RuleItem {...rule} />
+            </motion.div>
           ))}
         </div>
       </div>

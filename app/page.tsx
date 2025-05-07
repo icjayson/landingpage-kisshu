@@ -7,6 +7,10 @@ import { useEffect, useState, useRef } from "react"
 import WaveDivider from './components/WaveDivider'
 import Modal from './components/Modal'
 import { useSwipeable } from 'react-swipeable'
+import PrizesSection from './components/PrizesSection'
+import ProductsSection from './components/ProductsSection'
+import ProgramsSection from './components/ProgramsSection'
+import { motion } from 'framer-motion'
 
 export default function LandingPage() {
   const [activeSection, setActiveSection] = useState('')
@@ -343,487 +347,106 @@ export default function LandingPage() {
       <WaveDivider topColor="#D1ECF4" bottomColor="#F5EEC4" />
 
       {/* Prizes Section */}
-      <section id="prizes" className="bg-[#F5EEC4] py-8">
-        <div className="container mx-auto px-4">
-          <div className="mb-0 flex items-center justify-center">
-            <h2 className="text-[36px] max-md:text-[28px] max-sm:text-[24px] font-bold text-[#F0C034] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]">
-              GIẢI{' '} <br className="max-md:block hidden" /> THƯỞNG
-            </h2>
-            <div className="relative h-40 w-auto overflow-hidden pl-8">
-              <img 
-                src="/nv-chanh.png" 
-                alt="Prize Character" 
-                className="h-full w-auto object-contain"
-              />
-            </div>
-          </div>
-          <div className="mx-auto max-w-[1080px] max-md:mx-8 grid grid-cols-4 max-md:grid-cols-2 gap-8">
-            <div className="rounded-[16px]">
-              <div className="aspect-square">
-                <div className="aspect-square p-[4px] rounded-[12px] bg-gradient-to-r from-[#F0768E] to-[#F8E4EF]">
-                  <div className="h-full w-full bg-[#E8E8E8] rounded-[8px]">
-                    <img src="/iphone.png" alt="iPhone 14 Pro Max" className="rounded-[8px] h-full w-full object-cover" />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="text-[20px] max-sm:text-[18px] font-bold text-[#F0768E]">Giải nhất</p>
-                <p className="text-[18px] max-sm:text-[14px] font-bold text-black">iPhone 14 Pro Max</p>
-              </div>
-            </div>
-            <div className="rounded-[16px]">
-              <div className="aspect-square">
-                <div className="aspect-square p-[4px] rounded-[12px] bg-gradient-to-r from-[#006352] to-[#F9D0CF]">
-                  <div className="h-full w-full bg-[#E8E8E8] rounded-[8px]">
-                    <img src="/macbook.png" alt="Macbook M2" className="rounded-[8px] h-full w-full object-cover" />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="text-[20px] max-sm:text-[18px] font-bold text-[#006352]">Giải nhì</p>
-                <p className="text-[18px] max-sm:text-[14px] font-bold text-black">Macbook M2</p>
-              </div>
-            </div>
-            <div className="rounded-[16px]">
-              <div className="aspect-square">
-                <div className="aspect-square p-[4px] rounded-[12px] bg-gradient-to-r from-[#49C4D9] to-[#D1ECF4]">
-                  <div className="h-full w-full bg-[#E8E8E8] rounded-[8px]">
-                    <img src="/ban-phim.png" alt="Bàn Phím" className="rounded-[8px] h-full w-full object-cover" />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="text-[20px] max-sm:text-[18px] font-bold text-[#49C4D9]">Giải ba</p>
-                <p className="text-[18px] max-sm:text-[14px] font-bold text-black">Bàn Phím....</p>
-              </div>
-            </div>
-            <div className="rounded-[16px]">
-              <div className="aspect-square">
-                <div className="aspect-square p-[4px] rounded-[12px] bg-gradient-to-r from-[#FFB800] to-[#F5EEC4]">
-                  <div className="h-full w-full bg-[#E8E8E8] rounded-[8px]">
-                    <img src="/quat.png" alt="Quạt cầm tay" className="rounded-[8px] h-full w-full object-cover" />
-                  </div>
-                </div>
-              </div>
-              <div className="mt-4 text-center">
-                <p className="text-[20px] max-sm:text-[16px] font-bold text-[#F0C034]">Giải khuyến khích</p>
-                <p className="text-[18px] max-sm:text-[14px] font-bold text-black">Quạt cầm tay</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PrizesSection />
 
       <WaveDivider topColor="#F5EEC4" bottomColor="#F8E4EF" />
 
       {/* Products Collection */}
-      <section id="products" className="bg-[#F8E4EF] py-8">
-        <div className="container mx-auto px-4">
-          <div className="mb-0 flex items-center justify-center">
-            <div className="relative h-40 w-auto overflow-hidden pr-8">
-              <img 
-                src="/nv-dau.png" 
-                alt="Strawberry Character" 
-                className="h-full w-auto object-contain"
-              />
-            </div>
-            <h2 className="text-[36px] max-md:text-[28px] max-sm:text-[24px] font-bold text-[#F0768E] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]">
-              BỘ SƯU TẬP{' '} <br className="max-md:block hidden" /> SẢN PHẨM
-            </h2>
-          </div>
-          <div className="grid grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-3 gap-4 max-sm:gap-2">
-            {/* Kẹo hương dâu */}
-            <div className="group overflow-hidden rounded-[16px] border-2 border-[#F0768E] bg-[#F8E4EF] p-4 max-sm:p-2 transition-all hover:shadow-lg flex flex-col">
-              <div className="relative h-40 w-full overflow-hidden rounded-[12px]">
-                <img
-                  src="/huong-dau.png"
-                  alt="Kẹo hương dâu"
-                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div className="mt-4 text-center flex-1 flex flex-col">
-                <h3 className="text-[20px] max-sm:text-[12px] font-bold text-[#F0768E]">Kẹo ngậm Kisshu<br />hương dâu</h3>
-                <p className="mt-2 text-[14px] max-sm:text-[12px] max-md:hidden text-gray-600">Thưởng thức hương vị dâu tây tự nhiên, ngọt ngào và tươi mát với kẹo ngậm Kisshu hương dâu.</p>
-              </div>
-              <button
-                onClick={() => window.open('https://shopee.vn/S%E1%BA%A3n-ph%E1%BA%A9m-m%E1%BB%9Bi-COMBO-5-K%E1%BA%B9o-Ng%E1%BA%ADm-Th%C6%A1m-Mi%E1%BB%87ng-KISSHU-%E2%80%93-B%E1%BA%A3o-Ng%E1%BB%8Dc-i.293575788.24957156660', '_blank')}
-                className="mt-4 max-sm:mt-2 w-full rounded-[8px] bg-[#F0768E] py-2 text-[16px] max-sm:text-[14px] text-white transition-all hover:bg-pink-500 flex items-center justify-center gap-2 max-sm:gap-1"
-              >
-                Mua ngay <img src="/shop-white.png" alt="shop" className="w-6 h-6 max-sm:w-4 max-sm:h-4 object-contain" />
-              </button>
-            </div>
-
-            {/* Kẹo hương bạc hà */}
-            <div className="group overflow-hidden rounded-[16px] border-2 border-[#49C4D9] bg-[#D1ECF4] p-4 max-sm:p-2 transition-all hover:shadow-lg flex flex-col">
-              <div className="relative h-40 w-full overflow-hidden rounded-[12px]">
-                <img
-                  src="/huong-bac-ha.png"
-                  alt="Kẹo hương bạc hà"
-                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div className="mt-4 text-center flex-1 flex flex-col">
-                <h3 className="text-[20px] max-sm:text-[12px] font-bold text-[#49C4D9]">Kẹo ngậm Kisshu<br />hương bạc hà</h3>
-                <p className="mt-2 text-[14px] max-sm:text-[12px] max-md:hidden text-gray-600">Thưởng thức hương vị dâu tây tự nhiên, ngọt ngào và tươi mát với kẹo ngậm Kisshu hương dâu.</p>
-              </div>
-              <button
-                onClick={() => window.open('https://shopee.vn/S%E1%BA%A3n-ph%E1%BA%A9m-m%E1%BB%9Bi-COMBO-5-K%E1%BA%B9o-Ng%E1%BA%ADm-Th%C6%A1m-Mi%E1%BB%87ng-KISSHU-%E2%80%93-B%E1%BA%A3o-Ng%E1%BB%8Dc-i.293575788.24957156660', '_blank')}
-                className="mt-4 max-sm:mt-2 w-full rounded-[8px] bg-[#49C4D9] py-2 text-[16px] max-sm:text-[14px] text-white transition-all hover:bg-cyan-500 flex items-center justify-center gap-2 max-sm:gap-1"
-              >
-                Mua ngay <img src="/shop-white.png" alt="shop" className="w-6 h-6 max-sm:w-4 max-sm:h-4 object-contain" />
-              </button>
-            </div>
-
-            {/* Kẹo hương chanh */}
-            <div className="group overflow-hidden rounded-[16px] border-2 border-[#F0C034] bg-[#F5EEC4] p-4 max-sm:p-2 transition-all hover:shadow-lg flex flex-col">
-              <div className="relative h-40 w-full overflow-hidden rounded-[12px]">
-                <img
-                  src="/huong-chanh.png"
-                  alt="Kẹo hương chanh"
-                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div className="mt-4 text-center flex-1 flex flex-col">
-                <h3 className="text-[20px] max-sm:text-[12px] font-bold text-[#F0C034]">Kẹo ngậm Kisshu<br />hương chanh</h3>
-                <p className="mt-2 text-[14px] max-sm:text-[12px] max-md:hidden text-gray-600">Thưởng thức hương vị dâu tây tự nhiên, ngọt ngào và tươi mát với kẹo ngậm Kisshu hương dâu.</p>
-              </div>
-              <button
-                onClick={() => window.open('https://shopee.vn/S%E1%BA%A3n-ph%E1%BA%A9m-m%E1%BB%9Bi-COMBO-5-K%E1%BA%B9o-Ng%E1%BA%ADm-Th%C6%A1m-Mi%E1%BB%87ng-KISSHU-%E2%80%93-B%E1%BA%A3o-Ng%E1%BB%8Dc-i.293575788.24957156660', '_blank')}
-                className="mt-4 max-sm:mt-2 w-full rounded-[8px] bg-[#F0C034] py-2 text-[16px] max-sm:text-[14px] text-white transition-all hover:bg-yellow-500 flex items-center justify-center gap-2 max-sm:gap-1"
-              >
-                Mua ngay <img src="/shop-white.png" alt="shop" className="w-6 h-6 max-sm:w-4 max-sm:h-4 object-contain" />
-              </button>
-            </div>
-
-            {/* Kẹo hương dưa hấu */}
-            <div className="group overflow-hidden rounded-[16px] border-2 border-[#006352] bg-[#F9D0CF] p-4 max-sm:p-2 transition-all hover:shadow-lg flex flex-col">
-              <div className="relative h-40 w-full overflow-hidden rounded-[12px]">
-                <img
-                  src="/huong-dua-hau.png"
-                  alt="Kẹo hương dưa hấu"
-                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div className="mt-4 text-center flex-1 flex flex-col">
-                <h3 className="text-[20px] max-sm:text-[12px] font-bold text-[#006352]">Kẹo ngậm Kisshu<br />hương dưa hấu</h3>
-                <p className="mt-2 text-[14px] max-sm:text-[12px] max-md:hidden text-gray-600">Thưởng thức hương vị dâu tây tự nhiên, ngọt ngào và tươi mát với kẹo ngậm Kisshu hương dâu.</p>
-              </div>
-              <button
-                onClick={() => window.open('https://shopee.vn/S%E1%BA%A3n-ph%E1%BA%A9m-m%E1%BB%9Bi-COMBO-5-K%E1%BA%B9o-Ng%E1%BA%ADm-Th%C6%A1m-Mi%E1%BB%87ng-KISSHU-%E2%80%93-B%E1%BA%A3o-Ng%E1%BB%8Dc-i.293575788.24957156660', '_blank')}
-                className="mt-4 max-sm:mt-2 w-full rounded-[8px] bg-[#006352] py-2 text-[16px] max-sm:text-[14px] text-white transition-all hover:bg-green-500 flex items-center justify-center gap-2 max-sm:gap-1"
-              >
-                Mua ngay <img src="/shop-white.png" alt="shop" className="w-6 h-6 max-sm:w-4 max-sm:h-4 object-contain" />
-              </button>
-            </div>
-
-            {/* Kẹo vị ô mai */}
-            <div className="group overflow-hidden rounded-[16px] border-2 border-[#C5272D] bg-[#F2D5BA] p-4 max-sm:p-2 transition-all hover:shadow-lg flex flex-col">
-              <div className="relative h-40 w-full overflow-hidden rounded-[12px]">
-                <img
-                  src="/vi-o-mai.png"
-                  alt="Kẹo vị ô mai"
-                  className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-              <div className="mt-4 text-center flex-1 flex flex-col">
-                <h3 className="text-[20px] max-sm:text-[12px] font-bold text-[#C5272D]">Kẹo ngậm Kisshu<br />vị ô mai</h3>
-                <p className="mt-2 text-[14px] max-sm:text-[12px] max-md:hidden text-gray-600">Thưởng thức hương vị dâu tây tự nhiên, ngọt ngào và tươi mát với kẹo ngậm Kisshu hương dâu.</p>
-              </div>
-              <button
-                onClick={() => window.open('https://shopee.vn/S%E1%BA%A3n-ph%E1%BA%A9m-m%E1%BB%9Bi-COMBO-5-K%E1%BA%B9o-Ng%E1%BA%ADm-Th%C6%A1m-Mi%E1%BB%87ng-KISSHU-%E2%80%93-B%E1%BA%A3o-Ng%E1%BB%8Dc-i.293575788.24957156660', '_blank')}
-                className="mt-4 max-sm:mt-2 w-full rounded-[8px] bg-[#C5272D] py-2 text-[16px] max-sm:text-[14px] text-white transition-all hover:bg-red-500 flex items-center justify-center gap-2 max-sm:gap-1"
-              >
-                Mua ngay <img src="/shop-white.png" alt="shop" className="w-6 h-6 max-sm:w-4 max-sm:h-4 object-contain" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <ProductsSection />
       <WaveDivider topColor="#F8E4EF" bottomColor="#F2D5BA" />
 
       {/* Current Programs */}
-      <section id="programs" className="bg-[#F2D5BA] py-8">
-        <div className="container mx-auto px-4">
-          <div className="mb-0 flex items-center justify-center">
-            <h2 className="text-[36px] max-md:text-[28px] max-sm:text-[24px] font-bold text-[#C5272D] text-center drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]">
-              CHƯƠNG TRÌNH{' '} <br className="max-md:block hidden" /> ĐANG DIỄN RA
-            </h2>
-            <div className="relative h-40 w-auto overflow-hidden pl-8">
-              <img 
-                src="/nv-o-mai.png" 
-                alt="Happy Character" 
-                className="h-full w-auto object-contain"
-              />
-            </div>
-          </div>
-          <div className="mx-auto max-w-[1000px] max-sm:mx-2">
-            {/* Desktop: 2 columns, Mobile: only 1 card with navigation */}
-            <div className="grid grid-cols-2 gap-12 max-md:hidden">
-              {/* Program 1 */}
-              <div className="overflow-hidden rounded-[16px] border-2 border-[#F0768E] transition-all hover:shadow-lg h-full flex flex-col">
-                <div className="relative w-full pb-[56.25%]">
-                  <img 
-                    src="/chuong-trinh-1.png" 
-                    alt="CHƯƠNG TRÌNH BẬT MOOD CHILL SĂN QUÀ SIÊU IU" 
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div>
-                <div className="bg-gradient-to-b from-white to-[#FFE8F0] px-6 py-4 max-sm:pt-2 flex-1 flex flex-col">
-                  <div className="flex-1">
-                    <h3 className="text-[24px] max-md:text-[20px] font-bold text-[#F0768E] text-center leading-tight">
-                      BẬT MOOD CHILL{' '} <br className="max-sm:block hidden" /> SĂN QUÀ SIÊU IU
-                    </h3>
-                    <p className="mt-2 text-[16px] max-md:text-[14px] text-black text-center font-medium">Khám phá bộ sưu tập huy hiệu Kisshu độc đáo</p>
-                    <p className="mt-0 text-[16px] max-md:text-[14px] text-gray-600 text-center">Thời gian: 01/05/2025 - 01/06/2025</p>
-                    <p className="mt-2 text-[16px] max-md:text-[12px] text-black text-justify leading-relaxed">Sưu tập đầy đủ các huy hiệu Kisshu từ mỗi gói kẹo. Hoàn thành bộ sưu tập để nhận những phần quà đặc biệt và tham gia câu lạc bộ Kisshu độc quyền!</p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-center space-x-4 max-lg:flex-col max-lg:space-x-0 max-lg:space-y-4 max-md:flex-row max-md:space-x-4 max-md:space-y-0">
-                    <button 
-                      onClick={() => {
-                        setCurrentProgram(programDetails.program1)
-                        setIsModalOpen(true)
-                      }}
-                      className="min-w-[180px] max-md:min-w-0 max-md:flex-1 rounded-[12px] border-2 border-[#F0768E] px-8 max-md:px-4 py-2 text-[16px] max-sm:text-[14px] text-[#F0768E] hover:bg-[#F0768E] hover:text-white transition-all flex items-center justify-center gap-2"
-                    >
-                      Xem chi tiết <img src="/arrow.png" alt="arrow" className="w-4 h-4 object-contain" />
-                    </button>
-                    <a 
-                      href="https://forms.gle/V6KmFRiTNBDJGEFR9" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="min-w-[180px] max-md:min-w-0 max-md:flex-1 rounded-[12px] bg-[#F0768E] text-center px-8 max-md:px-4 py-2 text-[16px] max-sm:text-[14px] text-white hover:bg-[#d6607a] transition-all"
-                    >
-                      Tham gia ngay
-                    </a>
-                  </div>
-                </div>
-              </div>
-              {/* Program 2 */}
-              <div className="overflow-hidden rounded-[16px] border-2 border-[#006352] transition-all hover:shadow-lg h-full flex flex-col">
-                <div className="relative w-full pb-[56.25%]">
-                  <img 
-                    src="/chuong-trinh-2.png" 
-                    alt="CHƯƠNG TRÌNH CÙNG KISSHU CHILL MUÔN NƠI" 
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                </div>
-                <div className="bg-gradient-to-b from-white to-[#D1ECF4] px-6 py-4 max-sm:pt-2 flex-1 flex flex-col">
-                  <div className="flex-1">
-                    <h3 className="text-[24px] max-md:text-[20px] font-bold text-[#006352] text-center leading-tight">
-                      CÙNG KISSHU{' '} <br className="max-sm:block hidden" /> CHILL MUÔN NƠI
-                    </h3>
-                    <p className="mt-2 text-[16px] max-md:text-[14px] text-black text-center font-medium">Chia sẻ khoảnh khắc cùng Kisshu khắp mọi nơi</p>
-                    <p className="mt-0 text-[16px] max-md:text-[14px] text-gray-600 text-center">Thời gian: 01/05/2025 - 01/06/2025</p>
-                    <p className="mt-2 text-[16px] max-md:text-[12px] text-black text-justify leading-relaxed">Chụp ảnh cùng Kisshu tại những địa điểm du lịch nổi tiếng và chia sẻ lên mạng xã hội. Cơ hội rinh những phần quà giá trị và trở thành đại sứ thương hiệu Kisshu!</p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-center space-x-4 max-lg:flex-col max-lg:space-x-0 max-lg:space-y-4 max-md:flex-row max-md:space-x-4 max-md:space-y-0">
-                    <button 
-                      onClick={() => {
-                        setCurrentProgram(programDetails.program2)
-                        setIsModalOpen(true)
-                      }}
-                      className="min-w-[180px] max-md:min-w-0 max-md:flex-1 rounded-[12px] border-2 border-[#006352] px-8 max-md:px-4 py-2 text-[16px] max-sm:text-[14px] text-[#006352] hover:bg-[#006352] hover:text-white transition-all flex items-center justify-center gap-2"
-                    >
-                      Xem chi tiết <img src="/arrow.png" alt="arrow" className="w-4 h-4 object-contain" />
-                    </button>
-                    <a 
-                      href="https://forms.gle/V6KmFRiTNBDJGEFR9" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="min-w-[180px] max-md:min-w-0 max-md:flex-1 rounded-[12px] bg-[#006352] text-center px-8 max-md:px-4 py-2 text-[16px] max-sm:text-[14px] text-white hover:bg-[#004d3f] transition-all"
-                    >
-                      Tham gia ngay
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Mobile: only 1 card, navigation arrows, dot indicator */}
-            <div className="max-md:block hidden relative">
-              <div className="overflow-x-hidden relative" {...swipeHandlers}>
-                <div
-                  className={`transition-transform duration-300 will-change-transform ${
-                    isSliding
-                      ? slideDirection === 'right'
-                        ? 'translate-x-full'
-                        : '-translate-x-full'
-                      : 'translate-x-0'
-                  }`}
-                  key={currentProgramIndex}
-                >
-                  {currentProgramIndex == 0 && (
-                    <div className="overflow-hidden rounded-[16px] border-2 border-[#F0768E] transition-all hover:shadow-lg h-full flex flex-col">
-                      <div className="relative w-full pb-[56.25%]">
-                        <img 
-                          src="/chuong-trinh-1.png" 
-                          alt="CHƯƠNG TRÌNH BẬT MOOD CHILL SĂN QUÀ SIÊU IU" 
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                      </div>
-                      <div className="bg-gradient-to-b from-white to-[#FFE8F0] px-6 py-4 max-sm:pt-2 flex-1 flex flex-col">
-                        <div className="flex-1">
-                          <h3 className="text-[24px] max-md:text-[20px] font-bold text-[#F0768E] text-center leading-tight">
-                            BẬT MOOD CHILL{' '} <br className="max-sm:block hidden" /> SĂN QUÀ SIÊU IU
-                          </h3>
-                          <p className="mt-2 text-[16px] max-md:text-[14px] text-black text-center font-medium">Khám phá bộ sưu tập huy hiệu Kisshu độc đáo</p>
-                          <p className="mt-0 text-[16px] max-md:text-[14px] text-gray-600 text-center">Thời gian: 01/05/2025 - 01/06/2025</p>
-                          <p className="mt-2 text-[16px] max-md:text-[12px] text-black text-justify leading-relaxed">Sưu tập đầy đủ các huy hiệu Kisshu từ mỗi gói kẹo. Hoàn thành bộ sưu tập để nhận những phần quà đặc biệt và tham gia câu lạc bộ Kisshu độc quyền!</p>
-                        </div>
-                        <div className="mt-4 flex items-center justify-center space-x-4 max-lg:flex-col max-lg:space-x-0 max-lg:space-y-4 max-md:flex-row max-md:space-x-4 max-md:space-y-0">
-                          <button 
-                            onClick={() => {
-                              setCurrentProgram(programDetails.program1)
-                              setIsModalOpen(true)
-                            }}
-                            className="min-w-[180px] max-md:min-w-0 max-md:flex-1 rounded-[12px] border-2 border-[#F0768E] px-8 max-md:px-4 py-2 text-[16px] max-sm:text-[14px] text-[#F0768E] hover:bg-[#F0768E] hover:text-white transition-all flex items-center justify-center gap-2"
-                          >
-                            Xem chi tiết <img src="/arrow.png" alt="arrow" className="w-4 h-4 object-contain" />
-                          </button>
-                          <a 
-                            href="https://forms.gle/V6KmFRiTNBDJGEFR9" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="min-w-[180px] max-md:min-w-0 max-md:flex-1 rounded-[12px] bg-[#F0768E] text-center px-8 max-md:px-4 py-2 text-[16px] max-sm:text-[14px] text-white hover:bg-[#d6607a] transition-all"
-                          >
-                            Tham gia ngay
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  {currentProgramIndex == 1 && (
-                    <div className="overflow-hidden rounded-[16px] border-2 border-[#006352] transition-all hover:shadow-lg h-full flex flex-col">
-                      <div className="relative w-full pb-[56.25%]">
-                        <img 
-                          src="/chuong-trinh-2.png" 
-                          alt="CHƯƠNG TRÌNH CÙNG KISSHU CHILL MUÔN NƠI" 
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                      </div>
-                      <div className="bg-gradient-to-b from-white to-[#D1ECF4] px-6 py-4 max-sm:pt-2 flex-1 flex flex-col">
-                        <div className="flex-1">
-                          <h3 className="text-[24px] max-md:text-[20px] font-bold text-[#006352] text-center leading-tight">
-                            CÙNG KISSHU{' '} <br className="max-sm:block hidden" /> CHILL MUÔN NƠI
-                          </h3>
-                          <p className="mt-2 text-[16px] max-md:text-[14px] text-black text-center font-medium">Chia sẻ khoảnh khắc cùng Kisshu khắp mọi nơi</p>
-                          <p className="mt-0 text-[16px] max-md:text-[14px] text-gray-600 text-center">Thời gian: 01/05/2025 - 01/06/2025</p>
-                          <p className="mt-2 text-[16px] max-md:text-[12px] text-black text-justify leading-relaxed">Chụp ảnh cùng Kisshu tại những địa điểm du lịch nổi tiếng và chia sẻ lên mạng xã hội. Cơ hội rinh những phần quà giá trị và trở thành đại sứ thương hiệu Kisshu!</p>
-                        </div>
-                        <div className="mt-4 flex items-center justify-center space-x-4 max-lg:flex-col max-lg:space-x-0 max-lg:space-y-4 max-md:flex-row max-md:space-x-4 max-md:space-y-0">
-                          <button 
-                            onClick={() => {
-                              setCurrentProgram(programDetails.program2)
-                              setIsModalOpen(true)
-                            }}
-                            className="min-w-[180px] max-md:min-w-0 max-md:flex-1 rounded-[12px] border-2 border-[#006352] px-8 max-md:px-4 py-2 text-[16px] max-sm:text-[14px] text-[#006352] hover:bg-[#006352] hover:text-white transition-all flex items-center justify-center gap-2"
-                          >
-                            Xem chi tiết <img src="/arrow.png" alt="arrow" className="w-4 h-4 object-contain" />
-                          </button>
-                          <a 
-                            href="https://forms.gle/V6KmFRiTNBDJGEFR9" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="min-w-[180px] max-md:min-w-0 max-md:flex-1 rounded-[12px] bg-[#006352] text-center px-8 max-md:px-4 py-2 text-[16px] max-sm:text-[14px] text-white hover:bg-[#004d3f] transition-all"
-                          >
-                            Tham gia ngay
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-              {/* Navigation Arrows */}
-              {currentProgramIndex == 0 && (
-                <button 
-                  onClick={handleNext}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow-lg transition-all hover:bg-white hover:scale-110"
-                  aria-label="Next program"
-                >
-                  <ChevronRight className="h-8 w-8 text-[#ED1B24]" />
-                </button>
-              )}
-              {currentProgramIndex == 1 && (
-                <button 
-                  onClick={handlePrev}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 shadow-lg transition-all hover:bg-white hover:scale-110"
-                  aria-label="Previous program"
-                >
-                  <ChevronLeft className="h-8 w-8 text-[#ED1B24]" />
-                </button>
-              )}
-              {/* Dot indicator */}
-              <div className="flex justify-center mt-4">
-                {[0, 1].map((index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      if (index !== currentProgramIndex && !isSliding) {
-                        if (index > currentProgramIndex) handleNext()
-                        else handlePrev()
-                      }
-                    }}
-                    className={`h-2 w-2 rounded-full mx-1 transition-all ${
-                      index === currentProgramIndex ? 'bg-[#ED1B24] w-4' : 'bg-white/80'
-                    }`}
-                    aria-label={`Go to program ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <ProgramsSection />
       <WaveDivider topColor="#F2D5BA" bottomColor="#F9D0CF" />
 
       {/* Footer */}
       <section className="bg-[#F9D0CF] py-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-[auto_auto] max-md:grid-cols-1 items-center gap-20 max-lg:gap-10 max-md:gap-8">
-            <div className="relative h-60 justify-self-end max-md:justify-self-center">
+            <motion.div 
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="relative h-60 justify-self-end max-md:justify-self-center"
+            >
               <img 
                 src="/nv-dua-hau.png" 
                 alt="Footer Character" 
                 className="h-full w-auto object-contain"
               />
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col items-self-start items-center max-md:items-center justify-self-start max-md:justify-self-center px-0">
+            <motion.div 
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="flex flex-col items-self-start items-center max-md:items-center justify-self-start max-md:justify-self-center px-0"
+            >
               <h2 className="text-[32px] max-md:text-[24px] font-bold text-[#006352] text-center">
                 Sẵn sàng khám phá{' '} <br className="max-md:block hidden" /> thế giới Kisshu?
               </h2>
               <p className="mt-4 max-md:mt-2 text-[20px] max-md:text-[14px] text-gray-600 text-left text-center">
                 Hãy thưởng thức ngay hương vị tuyệt vời {' '} <br className="max-md:block hidden" /> của Kẹo Ngậm Kisshu!
               </p>
-              <button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => window.open('https://shopee.vn/S%E1%BA%A3n-ph%E1%BA%A9m-m%E1%BB%9Bi-COMBO-5-K%E1%BA%B9o-Ng%E1%BA%ADm-Th%C6%A1m-Mi%E1%BB%87ng-KISSHU-%E2%80%93-B%E1%BA%A3o-Ng%E1%BB%8Dc-i.293575788.24957156660', '_blank')}
                 className="mt-6 max-md:mt-4 rounded-[12px] bg-[#006352] px-8 py-3 max-md:py-2 text-[16px] text-white hover:bg-[#004d3f] transition-all flex items-center justify-center gap-2"
               >
                 Mua ngay <img src="/shop-white.png" alt="shop" className="w-6 h-6 object-contain" />
-              </button>
+              </motion.button>
               <div className="mt-8 max-md:mt-4 flex flex-row max-md:flex-col items-center gap-4">
                 <div className="flex items-center gap-4">
-                  <a href="https://www.facebook.com/banhtuoibaongoc" target="_blank" rel="noopener noreferrer" className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-1 shadow-md transition-transform hover:scale-110">
+                  <motion.a 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    href="https://www.facebook.com/banhtuoibaongoc" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-2 max-md:p-1 shadow-md transition-transform hover:scale-110"
+                  >
                     <img src="/facebook.png" alt="Facebook" className="h-full w-full object-contain" />
-                  </a>
-                  <a href="https://www.tiktok.com/@banhbaongoc_channel" target="_blank" rel="noopener noreferrer" className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-1  shadow-md transition-transform hover:scale-110">
+                  </motion.a>
+                  <motion.a 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    href="https://www.tiktok.com/@banhbaongoc_channel" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-2 max-md:p-1  shadow-md transition-transform hover:scale-110"
+                  >
                     <img src="/tiktok.png" alt="TikTok" className="h-full w-full object-contain" />
-                  </a>
-                  <a href="https://zalo.me/0973301986" target="_blank" rel="noopener noreferrer" className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-1  shadow-md transition-transform hover:scale-110">
+                  </motion.a>
+                  <motion.a 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    href="https://zalo.me/0973301986" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-2 max-md:p-1  shadow-md transition-transform hover:scale-110"
+                  >
                     <img src="/zalo.png" alt="Zalo" className="h-full w-full object-contain" />
-                  </a>
-                  <a href="https://shopee.vn/banhbaongoc_chanel" target="_blank" rel="noopener noreferrer" className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-1  shadow-md transition-transform hover:scale-110">
+                  </motion.a>
+                  <motion.a 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    href="https://shopee.vn/banhbaongoc_chanel" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-2 max-md:p-1  shadow-md transition-transform hover:scale-110"
+                  >
                     <img src="/shopee1.png" alt="Shopee" className="h-full w-full object-contain" />
-                  </a>
+                  </motion.a>
                 </div>
                 <div className="flex items-center gap-4 max-md:gap-2 mt-0">
-                  <img src="/phone.png" alt="Phone" className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-1  shadow-md" />
+                  <img src="/phone.png" alt="Phone" className="h-10 w-10 max-md:h-8 max-md:w-8 rounded-full bg-white p-2 max-md:p-1  shadow-md" />
                   <span className="text-[14px] text-gray-600">097 330 1986 - 089 616 4882</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
