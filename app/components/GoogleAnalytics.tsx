@@ -1,22 +1,7 @@
-import type { Metadata } from 'next'
-import './globals.css'
+"use client";
 import { useEffect } from "react";
-import GoogleAnalytics from "./components/GoogleAnalytics";
 
-export const metadata: Metadata = {
-  title: 'Kẹo Ngậm Kisshu',
-  description: 'Trang landing page chính thức của kẹo ngậm Kisshu.',
-  generator: 'banhbaongoc.vn',
-  icons: {
-    icon: '/logo-kisshu.svg',
-  },
-}
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function GoogleAnalytics() {
   useEffect(() => {
     // Tải script gtag.js
     const script = document.createElement("script");
@@ -40,12 +25,6 @@ export default function RootLayout({
       document.head.removeChild(inlineScript);
     };
   }, []);
-  return (
-    <html lang="en">
-      <body>
-        <GoogleAnalytics />
-        {children}
-      </body>
-    </html>
-  )
-}
+
+  return null;
+} 
