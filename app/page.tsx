@@ -10,6 +10,7 @@ import { useSwipeable } from 'react-swipeable'
 import PrizesSection from './components/PrizesSection'
 import ProductsSection from './components/ProductsSection'
 import ProgramsSection from './components/ProgramsSection'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { motion } from 'framer-motion'
 
 export default function LandingPage() {
